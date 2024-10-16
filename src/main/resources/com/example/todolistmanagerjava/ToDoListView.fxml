@@ -3,8 +3,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.todolistmanagerjava.ToDoListController" spacing="10" padding="15">
-    <!-- TableView for displaying tasks -->
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.todolistmanagerjava.ToDoListController" spacing="10">
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
     <TableView fx:id="taskTable" prefHeight="300">
         <columns>
             <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
@@ -15,13 +18,11 @@
         </columns>
     </TableView>
 
-    <!-- Search bar -->
     <HBox spacing="10" alignment="CENTER">
         <Label text="Search:" />
         <TextField fx:id="searchField" promptText="Search by title or description" />
     </HBox>
 
-    <!-- Action buttons -->
     <HBox spacing="10" alignment="CENTER">
         <Button fx:id="addTaskButton" text="Add Task" />
         <Button fx:id="editTaskButton" text="Edit Task" />

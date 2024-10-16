@@ -12,7 +12,7 @@ public class ToDoListManagerApp extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/todolistmanagerjava/ToDoListView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("To-Do List Manager");
+        stage.setTitle("To Do List Manager");
         stage.setScene(scene);
         stage.show();
     }

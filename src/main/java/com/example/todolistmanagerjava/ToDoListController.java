@@ -2,9 +2,13 @@ package com.example.todolistmanagerjava;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.layout.GridPane;
+
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class ToDoListController {
 
@@ -31,7 +35,8 @@ public class ToDoListController {
     @FXML
     private TextField searchField;
 
-    private ObservableList<Task> taskList = FXCollections.observableArrayList();
+    private final ObservableList<Task> taskList = FXCollections.observableArrayList();
+    private int taskIdCounter = 1; // To automatically assign IDs to tasks
 
     @FXML
     public void initialize() {
@@ -53,21 +58,18 @@ public class ToDoListController {
     }
 
     private void addTask() {
-        // Implementation for adding a task
+        //implement addTSask
     }
 
     private void deleteTask() {
-        Task selectedTask = taskTable.getSelectionModel().getSelectedItem();
-        if (selectedTask != null) {
-            taskList.remove(selectedTask);
-        }
+        //implement deleteTask
     }
 
     private void editTask() {
-        // Implementation for editing a task
+        //Implement edit task
     }
 
     private void saveTasks() {
-        // Implementation for saving tasks
+        //implement save feature
     }
 }
