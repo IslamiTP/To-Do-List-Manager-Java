@@ -1,53 +1,115 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-# Java To-Do List Manager
+# 📝 To-Do List Manager
 
-**Techstack**: Java, File I/O, JSON, Plain Text
+Welcome to the **To-Do List Manager**! This JavaFX application is a fully functional task management tool that allows users to organize, edit, and persist their to-do items. Whether you're looking to keep track of daily tasks or plan a long-term project, this tool provides a simple and effective way to stay organized.
 
-- Developed a command-line application to manage tasks efficiently, allowing users to create, view, update, and delete tasks with a unique identifier and various attributes, including priority, status, due date, and description.
-- Implemented unique ID generation, priority, and status categorization for better task organization.
-- Utilized file persistence to save and retrieve task data upon application startup, ensuring data is retained between sessions.
-- Included task filtering and search features, enabling users to locate tasks by ID, status, priority, due date, or keywords.
+## 📖 Project Overview
 
-**Features**:
-- **Add a Task**: User can create a task with ID, title, description, due date, priority, and status.
-- **View Tasks**: Display all tasks with filter options for ID, status, priority, or due date.
-- **Delete a Task**: Remove tasks by unique identifier.
-- **Update a Task**: Modify task details, such as marking as completed or updating the due date.
-- **Search Tasks**: Locate tasks using keywords in the title or description.
-- **Persistence**: Save tasks to a file format and load them when the application starts.
+The **To-Do List Manager** is built with Java and JavaFX, providing a user-friendly graphical interface for managing tasks. Key features include:
 
-## Getting Started
+- **Add Tasks**: Add tasks with details like title, description, due date, status, and priority.
+- **Edit Tasks**: Modify task details, including updating status or priority.
+- **Delete Tasks**: Remove tasks that are no longer needed.
+- **Save and Load**: Persist tasks to a local file (`tasks.txt`) to maintain a record even after restarting the application.
 
-First, run the development server:
+This project is perfect for those interested in a simple yet powerful way to manage tasks directly from their desktop.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🎨 Screenshots
+
+![Main Interface](images/main_interface.png)
+> *Main interface of the To-Do List Manager showing a list of tasks.*
+
+![Add Task Dialog](images/add_task.png)
+> *Dialog for adding new tasks with all the necessary details.*
+
+## 💻 How to Use
+
+### Requirements
+- **Java JDK 17 or later**: Ensure you have Java installed on your machine.
+- **JavaFX**: The project includes dependencies for JavaFX 17.0.6.
+
+### Setup Instructions
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/yourusername/todolistmanagerjava.git
+   cd todolistmanagerjava
+   ```
+
+2. **Build the Project**:
+    - If using IntelliJ IDEA:
+        1. Open IntelliJ and select **File > Open...**, then navigate to the `todolistmanagerjava` directory.
+        2. IntelliJ should automatically detect and import the Maven project.
+        3. Wait for the project to load, ensuring all dependencies resolve correctly.
+    - For command-line builds:
+      ```bash
+      mvn clean install
+      ```
+    - If you’re using Gradle, replace the Maven command with:
+      ```bash
+      gradle build
+      ```
+
+3. **Run the Application**:
+    - In IntelliJ, run the `ToDoListManagerApp` class directly.
+    - Alternatively, from the command line:
+      ```bash
+      java --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml -jar target/todolistmanagerjava.jar
+      ```
+
+### Using the To-Do List Manager
+
+1. **Adding a Task**:
+    - Click the **Add Task** button.
+    - Fill in the task details such as Title, Description, Due Date, Status, and Priority.
+    - Press **OK** to add the task to the list.
+
+2. **Editing a Task**:
+    - Select a task from the list.
+    - Click the **Edit Task** button to modify task details.
+    - Make the changes and press **OK** to save the updates.
+
+3. **Deleting a Task**:
+    - Select the task you want to delete from the list.
+    - Click the **Delete Task** button.
+
+4. **Saving Tasks**:
+    - Click the **Save Task** button to save all tasks to `tasks.txt` for future reference.
+
+5. **Loading Tasks**:
+    - Tasks are automatically loaded from `tasks.txt` on startup if the file exists.
+
+## 🚀 Features
+
+- **Persistent Storage**: Saves tasks to a local file (`tasks.txt`) for later retrieval.
+- **Intuitive UI**: Built with JavaFX, the UI is clean, user-friendly, and responsive.
+- **Status and Priority Options**: Organize tasks by priority and status to help you manage your workload effectively.
+
+## 📂 Project Structure
+
+```
+todolistmanagerjava/
+├── src/
+│   └── main/
+│       └── java/
+│           └── com/example/todolistmanagerjava/
+│               ├── ToDoListManagerApp.java
+│               ├── ToDoListController.java
+│               ├── Task.java
+│               └── TaskPersistence.java
+│       └── resources/
+│           └── com/example/todolistmanagerjava/
+│               └── ToDoListView.fxml
+├── tasks.txt
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technologies Used
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Java**: Core language for building the application logic.
+- **JavaFX**: Used for creating a graphical user interface.
+- **FXML**: For defining the UI layout.
+- **Maven**: For dependency management and building the project.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 📄 License
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is open source and available under the MIT License. See the [LICENSE](LICENSE) file for more information.
