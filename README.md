@@ -31,7 +31,7 @@ This project is perfect for those interested in a simple yet powerful way to man
 ### Setup Instructions
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/todolistmanagerjava.git
+   https://github.com/IslamiTP/To-Do-List-Manager-Java.git
    cd todolistmanagerjava
    ```
 
@@ -83,25 +83,6 @@ This project is perfect for those interested in a simple yet powerful way to man
 - **Persistent Storage**: Saves tasks to a local file (`tasks.txt`) for later retrieval.
 - **Intuitive UI**: Built with JavaFX, the UI is clean, user-friendly, and responsive.
 - **Status and Priority Options**: Organize tasks by priority and status to help you manage your workload effectively.
-
-## 📂 Project Structure
-
-```
-todolistmanagerjava/
-├── src/
-│   └── main/
-│       └── java/
-│           └── com/example/todolistmanagerjava/
-│               ├── ToDoListManagerApp.java
-│               ├── ToDoListController.java
-│               ├── Task.java
-│               └── TaskPersistence.java
-│       └── resources/
-│           └── com/example/todolistmanagerjava/
-│               └── ToDoListView.fxml
-├── tasks.txt
-└── README.md
-```
 
 ## 🛠️ Technologies Used
 
