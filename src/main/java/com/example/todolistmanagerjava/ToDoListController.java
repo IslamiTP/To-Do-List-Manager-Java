@@ -58,12 +58,28 @@ public class ToDoListController {
     }
 
     private void addTask() {
-        //implement addTSask
+        // Create a simple dialog for task entry
+        Dialog<Task> dialog = new Dialog<>();
+        dialog.setTitle("Add New Task");
+
+        // Set up dialog fields
+        TextField titleField = new TextField();
+        titleField.setPromptText("Title");
+
+        TextField descriptionField = new TextField();
+        descriptionField.setPromptText("Description");
+
+        DatePicker dueDatePicker = new DatePicker();
+        dueDatePicker.setPromptText("Due Date");
     }
 
     private void deleteTask() {
-        //implement deleteTask
+        Task selectedTask = taskTable.getSelectionModel().getSelectedItem();
+        if (selectedTask != null) {
+            taskList.remove(selectedTask);
+        }
     }
+
 
     private void editTask() {
         //Implement edit task
