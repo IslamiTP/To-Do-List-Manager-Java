@@ -1,1 +1,2 @@
-1|Clean|In-progress|Room|2024-10-03|Medium
+1|Study|In-progress|For Calculus 1 Exam|2024-10-24|High
+3|Complete Taxes|Completed|File them|2024-10-22|Low

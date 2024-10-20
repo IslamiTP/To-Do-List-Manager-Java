@@ -19,7 +19,7 @@ This project is perfect for those interested in a simple yet powerful way to man
 
 ## 🎨 Screenshots
 
-![Main Interface](images/main_interface.png)
+![alt text](https://github.com/[islamiTP]/[To-Do-List-Manager-Java]/blob/[master]/Base.png?raw=true)
 > *Main interface of the To-Do List Manager showing a list of tasks.*
 
 ![Add Task Dialog](images/add_task.png)
