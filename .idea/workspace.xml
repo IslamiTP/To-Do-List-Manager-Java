@@ -7,6 +7,7 @@
     <list default="true" id="114bb3e5-58bf-47f2-a080-c8e1c38510d4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/ToDoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/ToDoListController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +95,7 @@
       <workItem from="1729059285642" duration="4510000" />
       <workItem from="1729212598158" duration="1574000" />
       <workItem from="1729269458260" duration="71000" />
-      <workItem from="1729428542770" duration="4113000" />
+      <workItem from="1729428542770" duration="4968000" />
     </task>
     <servers />
   </component>

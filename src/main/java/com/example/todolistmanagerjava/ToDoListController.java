@@ -117,7 +117,7 @@ public class ToDoListController {
     private void editTask() {
         //Implement edit task
         Task selectedTask = taskTable.getSelectionModel().getSelectedItem();
-        if (selectedTask != null) {
+        if (selectedTask == null) {
             //If task not selected error message will be displayed
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please Select a Task to Edit.", ButtonType.OK);
             alert.showAndWait();
@@ -133,11 +133,11 @@ public class ToDoListController {
         TextField descriptionField = new TextField(selectedTask.getDescription());
         DatePicker dueDatePicker = new DatePicker(selectedTask.getDueDate());
 
-        ChoiceBox<String> statuesChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList("Not Started", "In progress", "Completed"));
-        statuesChoiceBox.setValue(selectedTask.getStatus());
+        ChoiceBox<String> statusChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList("Not started", "In-progress", "Completed"));
+        statusChoiceBox.setValue(selectedTask.getStatus());
 
         ChoiceBox<String> priorityChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList("Low", "Medium", "High"));
-        statuesChoiceBox.setValue(selectedTask.getPriority());
+        priorityChoiceBox.setValue(selectedTask.getPriority());
 
         //Grid Layout of dialog fields
         GridPane grid = new GridPane();
@@ -148,7 +148,7 @@ public class ToDoListController {
         grid.add(new Label("Due Date:"), 0, 2);
         grid.add(dueDatePicker, 1, 2);
         grid.add(new Label("Status:"), 0, 3);
-        grid.add(statuesChoiceBox, 1, 3);
+        grid.add(statusChoiceBox, 1, 3);
         grid.add(new Label("Priority:"), 0, 4);
         grid.add(priorityChoiceBox, 1, 4);
         // Dialog field buttons
@@ -161,7 +161,7 @@ public class ToDoListController {
                 selectedTask.setTitle(titleField.getText());
                 selectedTask.setDescription(descriptionField.getText());
                 selectedTask.setDueDate(dueDatePicker.getValue());
-                selectedTask.setStatus(statuesChoiceBox.getValue());
+                selectedTask.setStatus(statusChoiceBox.getValue());
                 selectedTask.setPriority(priorityChoiceBox.getValue());
                 return selectedTask;
             }
