@@ -24,7 +24,7 @@ This project is perfect for those interested in a simple yet powerful way to man
 
 <table>
   <tr>
-    <td><img src="./base.png" alt="Base Screen" width="400"/></td>
+    <td><img src="./Base.png" alt="Base Screen" width="400"/></td>
     <td><img src="./addTask.png" alt="Add Task Screenshot" width="400"/></td>
   </tr>
   <tr>
