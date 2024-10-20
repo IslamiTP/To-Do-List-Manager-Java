@@ -1,14 +1,15 @@
 
 # 📝 To-Do List Manager
 
-Welcome to the **To-Do List Manager**! This open-source  and locally ran JavaFX application is a fully functional task management 
-tool that allows users to organize, edit, and persist their to-do items. Whether you're looking to 
-keep track of daily tasks or plan a long-term project, this tool provides a simple and effective way 
-to stay organized.
+Welcome to the **To-Do List Manager**! This open-source  and locally ran JavaFX application is a fully 
+functional task management tool that allows users to organize, edit, and persist their to-do items. 
+Whether you're looking to keep track of daily tasks or plan a long-term project, this tool provides
+a simple and effective way to stay organized.
 
 ## 📖 Project Overview
 
-The **To-Do List Manager** is built with Java and JavaFX, providing a user-friendly graphical interface for managing tasks. Key features include:
+The **To-Do List Manager** is built with Java and JavaFX, providing a user-friendly graphical interface 
+for managing tasks. Key features include:
 
 - **Add Tasks**: Add tasks with details like title, description, due date, status, and priority.
 - **Edit Tasks**: Modify task details, including updating status or priority.
@@ -19,11 +20,32 @@ This project is perfect for those interested in a simple yet powerful way to man
 
 ## 🎨 Screenshots
 
-![alt text](https://github.com/[islamiTP]/[To-Do-List-Manager-Java]/blob/[master]/Base.png?raw=true)
-> *Main interface of the To-Do List Manager showing a list of tasks.*
+## Overview
 
-![Add Task Dialog](images/add_task.png)
-> *Dialog for adding new tasks with all the necessary details.*
+<table>
+  <tr>
+    <td><img src="./base.png" alt="Base Screen" width="400"/></td>
+    <td><img src="./addTask.png" alt="Add Task Screenshot" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center">Base Screen</td>
+    <td align="center">Add Task</td>
+  </tr>
+</table>
+
+### Editing and Saving Tasks
+
+<table>
+  <tr>
+    <td><img src="./editTask.png" alt="Edit Task Screenshot" width="400"/></td>
+    <td><img src="./saveTask.png" alt="Save Task Screenshot" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center">Edit Task</td>
+    <td align="center">Save Task</td>
+  </tr>
+</table>
+
 
 ## 💻 How to Use
 
