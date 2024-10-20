@@ -174,6 +174,14 @@ public class ToDoListController {
     }
 
     private void saveTasks() {
-        //implement save feature
+        try {
+            TaskPersistence.saveTasks(taskList);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Tasks have been successfully saved.", ButtonType.OK);
+            alert.showAndWait();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "An error occurred while saving tasks. " + e.getMessage(), ButtonType.OK);
+            alert.showAndWait();
+            e.printStackTrace(); // Debugging output
+        }
     }
 }
