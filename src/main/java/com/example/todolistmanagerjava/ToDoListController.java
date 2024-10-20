@@ -71,6 +71,39 @@ public class ToDoListController {
 
         DatePicker dueDatePicker = new DatePicker();
         dueDatePicker.setPromptText("Due Date");
+
+        ChoiceBox<String> statusChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList("Not started", "In-progress", "Completed"));
+        ChoiceBox<String> priorityChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList("Low", "Medium", "High"));
+
+        // Layout dialog
+        GridPane grid = new GridPane();
+        grid.add(new Label("Title:"), 0, 0);
+        grid.add(titleField, 1, 0);
+        grid.add(new Label("Description:"), 0, 1);
+        grid.add(descriptionField, 1, 1);
+        grid.add(new Label("Due Date:"), 0, 2);
+        grid.add(dueDatePicker, 1, 2);
+        grid.add(new Label("Status:"), 0, 3);
+        grid.add(statusChoiceBox, 1, 3);
+        grid.add(new Label("Priority:"), 0, 4);
+        grid.add(priorityChoiceBox, 1, 4);
+
+        dialog.getDialogPane().setContent(grid);
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+
+        dialog.setResultConverter(dialogButton -> {
+            if (dialogButton == ButtonType.OK) {
+                return new Task(taskIdCounter++,
+                        titleField.getText(),
+                        statusChoiceBox.getValue(),
+                        descriptionField.getText(),
+                        dueDatePicker.getValue(),
+                        priorityChoiceBox.getValue());
+            }
+            return null;
+        });
+
+        dialog.showAndWait().ifPresent(task -> taskList.add(task));
     }
 
     private void deleteTask() {
