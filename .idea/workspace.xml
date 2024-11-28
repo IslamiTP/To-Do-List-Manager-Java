@@ -10,6 +10,10 @@
 =======
     <list default="true" id="114bb3e5-58bf-47f2-a080-c8e1c38510d4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+>>>>>>> parent of 564e140 (Update README.md)
     </list>
 >>>>>>> parent of 4ba13bd (Start of User Authentication and Recurrences)
 =======
@@ -138,8 +142,12 @@
       <workItem from="1729059285642" duration="4510000" />
       <workItem from="1729212598158" duration="1574000" />
       <workItem from="1729269458260" duration="71000" />
+<<<<<<< HEAD
       <workItem from="1729428542770" duration="6551000" />
       <workItem from="1729467498612" duration="4000" />
+=======
+      <workItem from="1729428542770" duration="6454000" />
+>>>>>>> parent of 564e140 (Update README.md)
     </task>
     <servers />
   </component>
