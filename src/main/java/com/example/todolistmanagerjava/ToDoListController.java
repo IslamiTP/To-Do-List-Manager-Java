@@ -6,9 +6,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.layout.GridPane;
-
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class ToDoListController {
 
@@ -25,6 +23,9 @@ public class ToDoListController {
     @FXML
     private TableColumn<Task, String> priorityColumn;
     @FXML
+    private TableColumn<Task, String> recurrenceColumn;
+
+    @FXML
     private Button addTaskButton;
     @FXML
     private Button deleteTaskButton;
@@ -32,11 +33,17 @@ public class ToDoListController {
     private Button editTaskButton;
     @FXML
     private Button saveTaskButton;
-    @FXML
-    private TextField searchField;
 
     private final ObservableList<Task> taskList = FXCollections.observableArrayList();
-    private int taskIdCounter = 1; // To automatically assign IDs to tasks
+    private User currentUser;
+    private int taskIdCounter = 1;
+
+    public void setUser(User user) {
+        this.currentUser = user;
+        taskList.setAll(user.getTaskList());
+
+        taskIdCounter = taskList.stream().mapToInt(Task::getId).max().orElse(0) + 1;
+    }
 
     @FXML
     public void initialize() {
@@ -45,12 +52,10 @@ public class ToDoListController {
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
         dueDateColumn.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
         priorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
+        recurrenceColumn.setCellValueFactory(new PropertyValueFactory<>("recurrence"));
 
         taskTable.setItems(taskList);
-        setupButtonActions();
-    }
 
-    private void setupButtonActions() {
         addTaskButton.setOnAction(event -> addTask());
         deleteTaskButton.setOnAction(event -> deleteTask());
         editTaskButton.setOnAction(event -> editTask());
@@ -58,11 +63,9 @@ public class ToDoListController {
     }
 
     private void addTask() {
-        // Create a simple dialog for task entry
         Dialog<Task> dialog = new Dialog<>();
         dialog.setTitle("Add New Task");
 
-        // Set up dialog fields
         TextField titleField = new TextField();
         titleField.setPromptText("Title");
 
@@ -73,9 +76,14 @@ public class ToDoListController {
         dueDatePicker.setPromptText("Due Date");
 
         ChoiceBox<String> statusChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList("Not started", "In-progress", "Completed"));
-        ChoiceBox<String> priorityChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList("Low", "Medium", "High"));
+        statusChoiceBox.setValue("Not started");
 
-        // Layout dialog
+        ChoiceBox<String> priorityChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList("Low", "Medium", "High"));
+        priorityChoiceBox.setValue("Medium");
+
+        ChoiceBox<String> recurrenceChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList("None", "Daily", "Weekly", "Monthly"));
+        recurrenceChoiceBox.setValue("None");
+
         GridPane grid = new GridPane();
         grid.add(new Label("Title:"), 0, 0);
         grid.add(titleField, 1, 0);
@@ -87,59 +95,60 @@ public class ToDoListController {
         grid.add(statusChoiceBox, 1, 3);
         grid.add(new Label("Priority:"), 0, 4);
         grid.add(priorityChoiceBox, 1, 4);
+        grid.add(new Label("Recurrence:"), 0, 5);
+        grid.add(recurrenceChoiceBox, 1, 5);
 
         dialog.getDialogPane().setContent(grid);
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
 
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == ButtonType.OK) {
-                return new Task(taskIdCounter++,
-                        titleField.getText(),
-                        statusChoiceBox.getValue(),
-                        descriptionField.getText(),
-                        dueDatePicker.getValue(),
-                        priorityChoiceBox.getValue());
+                String recurrence = recurrenceChoiceBox.getValue().equals("None") ? null : recurrenceChoiceBox.getValue();
+                return new Task(taskIdCounter++, titleField.getText(), statusChoiceBox.getValue(),
+                        descriptionField.getText(), dueDatePicker.getValue(),
+                        priorityChoiceBox.getValue(), recurrence);
             }
             return null;
         });
 
-        dialog.showAndWait().ifPresent(task -> taskList.add(task));
+        dialog.showAndWait().ifPresent(task -> {
+            taskList.add(task);
+            currentUser.getTaskList().add(task);
+        });
     }
 
     private void deleteTask() {
         Task selectedTask = taskTable.getSelectionModel().getSelectedItem();
         if (selectedTask != null) {
             taskList.remove(selectedTask);
+            currentUser.getTaskList().remove(selectedTask);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please select a task to delete.", ButtonType.OK);
+            alert.showAndWait();
         }
     }
 
-
     private void editTask() {
-        //Implement edit task
         Task selectedTask = taskTable.getSelectionModel().getSelectedItem();
         if (selectedTask == null) {
-            //If task not selected error message will be displayed
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please Select a Task to Edit.", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Please select a task to edit.", ButtonType.OK);
             alert.showAndWait();
             return;
         }
 
-        //Dialog for task editing
         Dialog<Task> dialog = new Dialog<>();
         dialog.setTitle("Edit Task");
 
-        // Prefills the dialog box field with the previous text in order to change it.
         TextField titleField = new TextField(selectedTask.getTitle());
         TextField descriptionField = new TextField(selectedTask.getDescription());
         DatePicker dueDatePicker = new DatePicker(selectedTask.getDueDate());
-
         ChoiceBox<String> statusChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList("Not started", "In-progress", "Completed"));
         statusChoiceBox.setValue(selectedTask.getStatus());
-
         ChoiceBox<String> priorityChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList("Low", "Medium", "High"));
         priorityChoiceBox.setValue(selectedTask.getPriority());
+        ChoiceBox<String> recurrenceChoiceBox = new ChoiceBox<>(FXCollections.observableArrayList("None", "Daily", "Weekly", "Monthly"));
+        recurrenceChoiceBox.setValue(selectedTask.getRecurrence() == null ? "None" : selectedTask.getRecurrence());
 
-        //Grid Layout of dialog fields
         GridPane grid = new GridPane();
         grid.add(new Label("Title:"), 0, 0);
         grid.add(titleField, 1, 0);
@@ -151,11 +160,12 @@ public class ToDoListController {
         grid.add(statusChoiceBox, 1, 3);
         grid.add(new Label("Priority:"), 0, 4);
         grid.add(priorityChoiceBox, 1, 4);
-        // Dialog field buttons
+        grid.add(new Label("Recurrence:"), 0, 5);
+        grid.add(recurrenceChoiceBox, 1, 5);
+
         dialog.getDialogPane().setContent(grid);
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
 
-        //Update task if user clicks on "OK"
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == ButtonType.OK) {
                 selectedTask.setTitle(titleField.getText());
@@ -163,25 +173,25 @@ public class ToDoListController {
                 selectedTask.setDueDate(dueDatePicker.getValue());
                 selectedTask.setStatus(statusChoiceBox.getValue());
                 selectedTask.setPriority(priorityChoiceBox.getValue());
+                selectedTask.setRecurrence(recurrenceChoiceBox.getValue().equals("None") ? null : recurrenceChoiceBox.getValue());
                 return selectedTask;
             }
             return null;
         });
 
-        // Show dialog message and refresh table if tasks updated
         dialog.showAndWait();
         taskTable.refresh();
     }
 
     private void saveTasks() {
         try {
-            TaskPersistence.saveTasks(taskList);
+            com.example.todolistmanagerjava.TaskPersistence.saveTasks(taskList);
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Tasks have been successfully saved.", ButtonType.OK);
             alert.showAndWait();
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "An error occurred while saving tasks. " + e.getMessage(), ButtonType.OK);
             alert.showAndWait();
-            e.printStackTrace(); // Debugging output
+            e.printStackTrace();
         }
     }
 }

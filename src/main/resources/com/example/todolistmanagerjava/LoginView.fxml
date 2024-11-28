@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.todolistmanagerjava.LoginController"
+      spacing="10" alignment="CENTER" padding="20.0">
+    <Label text="Login to Task Manager" />
+    <TextField fx:id="usernameField" promptText="Username" />
+    <PasswordField fx:id="passwordField" promptText="Password" />
+    <Button fx:id="loginButton" text="Login" onAction="#handleLogin" />
+</VBox>

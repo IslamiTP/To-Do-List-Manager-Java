@@ -9,10 +9,10 @@ import java.io.IOException;
 public class ToDoListManagerApp extends Application {
 
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/todolistmanagerjava/ToDoListView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("To Do List Manager");
+    public void start(Stage stage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/todolistmanagerjava/LoginView.fxml"));
+        Scene scene = new Scene(loader.load(), 400, 300);
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
     }
