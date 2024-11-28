@@ -1,2 +1,2 @@
-1|Study|In-progress|For Calculus 1 Exam|2024-10-24|High
-3|Complete Taxes|Completed|File them|2024-10-22|Low
+1|Study|In-progress|For CSC3200 erxam|2024-11-29|Medium|Weekly
+1|Cook|In-progress|Cook steak and rice|2024-11-29|Medium|Monthly
