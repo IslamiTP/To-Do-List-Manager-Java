@@ -15,7 +15,6 @@
             <TableColumn fx:id="statusColumn" text="Status" prefWidth="100" />
             <TableColumn fx:id="dueDateColumn" text="Due Date" prefWidth="100" />
             <TableColumn fx:id="priorityColumn" text="Priority" prefWidth="100" />
-            <TableColumn fx:id="recurrenceColumn" text="Recurrence" prefWidth="100" />
         </columns>
     </TableView>
 
