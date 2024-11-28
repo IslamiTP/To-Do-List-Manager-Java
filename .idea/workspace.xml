@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="114bb3e5-58bf-47f2-a080-c8e1c38510d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/UserPersistence.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/todolistmanagerjava/LoginView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/TaskPersistence.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/TaskPersistence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/ToDoListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/ToDoListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/ToDoListManagerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/todolistmanagerjava/ToDoListManagerApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/todolistmanagerjava/ToDoListView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/todolistmanagerjava/ToDoListView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
