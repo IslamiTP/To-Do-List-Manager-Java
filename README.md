@@ -1,4 +1,4 @@
-# 📝 To-Do List Manager
+# 📝 Task Manager
 
 Welcome to the **To-Do List Manager**! This open-source and locally-run JavaFX application is a fully functional task management tool that allows users to organize, edit, and persist their to-do items. Whether you're looking to keep track of daily tasks or plan a long-term project, this tool provides a simple and effective way to stay organized.
 
