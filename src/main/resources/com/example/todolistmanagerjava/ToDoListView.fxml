@@ -31,6 +31,9 @@
         <Button fx:id="addTaskButton" text="Add Task" />
         <Button fx:id="editTaskButton" text="Edit Task" />
         <Button fx:id="deleteTaskButton" text="Delete Task" />
+        <Button fx:id="sortIdButton" text="Sort by ID (Asc)" onAction="#handleSortById" />
         <Button fx:id="saveTaskButton" text="Save Tasks" />
+        <Button fx:id="sortPriorityButton" text="Sort by Priority (Asc)" onAction="#handleSortByPriority" />
+        <Button fx:id="filterPriorityButton" text="Filter: All" onAction="#handleFilterByPriority" />
     </HBox>
 </VBox>
