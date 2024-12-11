@@ -109,11 +109,15 @@ This project is perfect for those interested in a secure, multi-user task manage
 2. **Adding a Task**:
    - Click the **Add Task** button.
    - Fill in the task details such as Title, Description, Due Date, Status, Priority, and Recurrence.
+   - Task details such as Title and description have character limiter.
+   - Title can only be a maximum of `100` characters long. The system won't allow you to create the task with characters passed 100.
+   - Description can only be `2000` characters long. The system follows the same behavior if the description passes 2000 characters.
    - Press **OK** to add the task to the list.
 
 3. **Editing a Task**:
    - Select a task from the list.
    - Click the **Edit Task** button to modify task details.
+   - When Editing Title or Description the same rule applies as adding a task.
    - Make the changes and press **OK** to save the updates.
 
 4. **Deleting a Task**:
